@@ -23,4 +23,14 @@ class Department extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function specialities()
+    {
+        return $this->hasMany(Speciality::class, 'speciality_id', 'id');
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(User::class, 'teacher_id', 'id');
+    }
 }

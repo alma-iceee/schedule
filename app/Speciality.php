@@ -23,4 +23,9 @@ class Speciality extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }
