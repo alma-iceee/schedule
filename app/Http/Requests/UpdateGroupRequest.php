@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Group;
-use Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateGroupRequest extends FormRequest
@@ -21,6 +20,7 @@ class UpdateGroupRequest extends FormRequest
         return [
             'name' => [
                 'required'],
+            'speciality_id',
         ];
     }
 }

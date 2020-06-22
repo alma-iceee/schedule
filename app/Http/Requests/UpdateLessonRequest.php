@@ -20,12 +20,6 @@ class UpdateLessonRequest extends FormRequest
     public function rules()
     {
         return [
-            'group_id'   => [
-                'required',
-                'integer'],
-            'teacher_id' => [
-                'required',
-                'integer'],
             'weekday'    => [
                 'required',
                 'integer',
@@ -39,6 +33,18 @@ class UpdateLessonRequest extends FormRequest
                 'required',
                 'after:start_time',
                 'date_format:' . config('panel.lesson_time_format')],
+            'subject_id'   => [
+                'required',
+                'integer'],
+            'teacher_id' => [
+                'required',
+                'integer'],
+            'group_id'   => [
+                'required',
+                'integer'],
+            'room_id'   => [
+                'required',
+                'integer'],
         ];
     }
 }

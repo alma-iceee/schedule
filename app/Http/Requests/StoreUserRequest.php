@@ -2,8 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\User;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,7 +18,7 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'iitu_id'  => [
+            'user_id'  => [
                 'required'],
             'surname'  => [
                 'required'],
@@ -37,6 +36,9 @@ class StoreUserRequest extends FormRequest
             'roles'    => [
                 'required',
                 'array'],
+            'group_id',
+            'department_id',
+            'speciality_id',
         ];
     }
 }

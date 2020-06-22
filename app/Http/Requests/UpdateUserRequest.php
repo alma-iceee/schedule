@@ -2,8 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\User;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,22 +18,25 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'iitu_id'    => [
+            'user_id'    => [
                 'required'],
-            'name'    => [
+            'name'       => [
                 'required'],
             'surname'    => [
                 'required'],
-            'patronymic'    => [
+            'patronymic' => [
                 'required'],
-            'email'   => [
+            'email'      => [
                 'required',
                 'unique:users,email,' . request()->route('user')->id],
-            'roles.*' => [
+            'roles.*'    => [
                 'integer'],
-            'roles'   => [
+            'roles'      => [
                 'required',
                 'array'],
+            'group_id',
+            'department_id',
+            'speciality_id',
         ];
     }
 }

@@ -2,16 +2,15 @@
 
 namespace App\Http\Requests;
 
-use App\Permission;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StorePermissionRequest extends FormRequest
+class MassDestroyGroupRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('permission_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('group_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -19,8 +18,8 @@ class StorePermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => [
-                'required'],
+            'ids'   => 'required|array',
+            'ids.*' => 'exists:group,id',
         ];
     }
 }
