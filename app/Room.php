@@ -22,4 +22,9 @@ class Room extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'lesson_id', 'id');
+    }
 }

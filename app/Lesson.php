@@ -21,6 +21,10 @@ class Lesson extends Model
         'weekday',
         'start_time',
         'end_time',
+        'subject_id',
+        'teacher_id',
+        'group_id',
+        'room_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,4 +39,24 @@ class Lesson extends Model
         '6' => 'Saturday',
         '7' => 'Sunday',
     ];
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

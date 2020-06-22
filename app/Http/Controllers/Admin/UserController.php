@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Department;
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MassDestroyUserRequest;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Role;
 use App\Speciality;
+use App\User;
+use App\Department;
+use App\Group;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {

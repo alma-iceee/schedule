@@ -23,4 +23,19 @@ class Subject extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function teachers()
+    {
+        return $this->hasMany(User::class, 'teacher_id', 'id');
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'lesson_id', 'id');
+    }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class, 'group_id', 'id');
+    }
 }

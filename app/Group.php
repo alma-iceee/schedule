@@ -19,8 +19,29 @@ class Group extends Model
 
     protected $fillable = [
         'name',
+        'speciality',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function speciality()
+    {
+        return $this->belongsTo(Speciality::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(User::class, 'student_id', 'id');
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'lesson_id', 'id');
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'subject_id', 'id');
+    }
 }

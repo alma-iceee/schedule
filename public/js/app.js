@@ -18835,7 +18835,7 @@ return jQuery;
      * `keys`, `keysIn`, `map`, `mapKeys`, `mapValues`, `matches`, `matchesProperty`,
      * `memoize`, `merge`, `mergeWith`, `method`, `methodOf`, `mixin`, `negate`,
      * `nthArg`, `omit`, `omitBy`, `once`, `orderBy`, `over`, `overArgs`,
-     * `overEvery`, `overSome`, `partial`, `partialRight`, `partition`, `pick`,
+     * `overEvery`, `overSome`, `partials`, `partialRight`, `partition`, `pick`,
      * `pickBy`, `plant`, `property`, `propertyOf`, `pull`, `pullAll`, `pullAllBy`,
      * `pullAllWith`, `pullAt`, `push`, `range`, `rangeRight`, `rearg`, `reject`,
      * `remove`, `rest`, `reverse`, `sampleSize`, `set`, `setWith`, `shuffle`,
@@ -20506,7 +20506,7 @@ return jQuery;
     }
 
     /**
-     * The base implementation of `_.isEqual` which supports partial comparisons
+     * The base implementation of `_.isEqual` which supports partials comparisons
      * and tracks traversed objects.
      *
      * @private
@@ -22379,7 +22379,7 @@ return jQuery;
 
     /**
      * Creates a function that wraps `func` to invoke it with optional `this`
-     * binding of `thisArg`, partial application, and currying.
+     * binding of `thisArg`, partials application, and currying.
      *
      * @private
      * @param {Function|string} func The function or method name to wrap.
@@ -22727,7 +22727,7 @@ return jQuery;
      *    4 - `_.curry` or `_.curryRight` of a bound function
      *    8 - `_.curry`
      *   16 - `_.curryRight`
-     *   32 - `_.partial`
+     *   32 - `_.partials`
      *   64 - `_.partialRight`
      *  128 - `_.rearg`
      *  256 - `_.ary`
@@ -22854,7 +22854,7 @@ return jQuery;
 
     /**
      * A specialized version of `baseIsEqualDeep` for arrays with support for
-     * partial deep comparisons.
+     * partials deep comparisons.
      *
      * @private
      * @param {Array} array The array to compare.
@@ -23010,7 +23010,7 @@ return jQuery;
 
     /**
      * A specialized version of `baseIsEqualDeep` for objects with support for
-     * partial deep comparisons.
+     * partials deep comparisons.
      *
      * @private
      * @param {Object} object The object to compare.
@@ -23692,7 +23692,7 @@ return jQuery;
      * Merges the function metadata of `source` into `data`.
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
-     * This is possible because methods like `_.bind`, `_.curry`, and `_.partial`
+     * This is possible because methods like `_.bind`, `_.curry`, and `_.partials`
      * may be applied regardless of execution order. Methods like `_.ary` and
      * `_.rearg` modify function arguments, making the order in which they are
      * executed important, preventing the merging of metadata. However, we make
@@ -23725,14 +23725,14 @@ return jQuery;
         // Set when currying a bound function.
         newBitmask |= bitmask & WRAP_BIND_FLAG ? 0 : WRAP_CURRY_BOUND_FLAG;
       }
-      // Compose partial arguments.
+      // Compose partials arguments.
       var value = source[3];
       if (value) {
         var partials = data[3];
         data[3] = partials ? composeArgs(partials, value, source[4]) : value;
         data[4] = partials ? replaceHolders(data[3], PLACEHOLDER) : source[4];
       }
-      // Compose partial right arguments.
+      // Compose partials right arguments.
       value = source[5];
       if (value) {
         partials = data[5];
@@ -27459,7 +27459,7 @@ return jQuery;
 
     /**
      * This method is like `_.curry` except that arguments are applied to `func`
-     * in the manner of `_.partialRight` instead of `_.partial`.
+     * in the manner of `_.partialRight` instead of `_.partials`.
      *
      * The `_.curryRight.placeholder` value, which defaults to `_` in monolithic
      * builds, may be used as a placeholder for provided arguments.
@@ -27926,7 +27926,7 @@ return jQuery;
      * arguments it receives. This method is like `_.bind` except it does **not**
      * alter the `this` binding.
      *
-     * The `_.partial.placeholder` value, which defaults to `_` in monolithic
+     * The `_.partials.placeholder` value, which defaults to `_` in monolithic
      * builds, may be used as a placeholder for partially applied arguments.
      *
      * **Note:** This method doesn't set the "length" property of partially
@@ -27945,12 +27945,12 @@ return jQuery;
      *   return greeting + ' ' + name;
      * }
      *
-     * var sayHelloTo = _.partial(greet, 'hello');
+     * var sayHelloTo = _.partials(greet, 'hello');
      * sayHelloTo('fred');
      * // => 'hello fred'
      *
      * // Partially applied with placeholders.
-     * var greetFred = _.partial(greet, _, 'fred');
+     * var greetFred = _.partials(greet, _, 'fred');
      * greetFred('hi');
      * // => 'hi fred'
      */
@@ -27960,7 +27960,7 @@ return jQuery;
     });
 
     /**
-     * This method is like `_.partial` except that partially applied arguments
+     * This method is like `_.partials` except that partially applied arguments
      * are appended to the arguments it receives.
      *
      * The `_.partialRight.placeholder` value, which defaults to `_` in monolithic
@@ -29048,7 +29048,7 @@ return jQuery;
     var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
 
     /**
-     * Performs a partial deep comparison between `object` and `source` to
+     * Performs a partials deep comparison between `object` and `source` to
      * determine if `object` contains equivalent property values.
      *
      * **Note:** This method is equivalent to `_.matches` when `source` is
@@ -32788,7 +32788,7 @@ return jQuery;
     }
 
     /**
-     * Creates a function that performs a partial deep comparison between a given
+     * Creates a function that performs a partials deep comparison between a given
      * object and `source`, returning `true` if the given object has equivalent
      * property values, else `false`.
      *
@@ -32820,7 +32820,7 @@ return jQuery;
     }
 
     /**
-     * Creates a function that performs a partial deep comparison between the
+     * Creates a function that performs a partials deep comparison between the
      * value at `path` of a given object to `srcValue`, returning `true` if the
      * object value is equivalent, else `false`.
      *
@@ -49779,7 +49779,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -49799,7 +49799,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

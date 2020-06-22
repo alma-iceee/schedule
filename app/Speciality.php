@@ -19,6 +19,7 @@ class Speciality extends Model
 
     protected $fillable = [
         'name',
+        'department_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -27,5 +28,15 @@ class Speciality extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class, 'group_id', 'id');
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(User::class, 'teacher_id', 'id');
     }
 }

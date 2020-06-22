@@ -25,6 +25,9 @@ class User extends Authenticatable
         'patronymic',
         'email',
         'password',
+        'group_id',
+        'speciality_id',
+        'department_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -39,8 +42,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function speciality()
+    {
+        return $this->belongsTo(Speciality::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'lesson_id', 'id');
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'subject_id', 'id');
     }
 }
