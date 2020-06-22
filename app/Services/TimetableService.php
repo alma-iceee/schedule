@@ -4,20 +4,20 @@ namespace App\Services;
 
 use App\Lesson;
 
-class CalendarService
+class TimetableService
 {
-    public function generateCalendarData($weekDays)
+    public function generateTimetableData($weekDays)
     {
-        $calendarData = [];
-        $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_time'), config('app.calendar.end_time'));
+        $timetableData = [];
+        $timeRange = (new TimeService)->generateTimeRange(config('app.timetable.start_time'), config('app.timetable.end_time'));
         $lessons   = Lesson::with('group', 'teacher')
-            ->calendarByRoleOrGroupId()
+            ->timetableByGroupId()
             ->get();
 
         foreach ($timeRange as $time)
         {
             $timeText = $time['start'] . ' - ' . $time['end'];
-            $calendarData[$timeText] = [];
+            $timetableData[$timeText] = [];
 
             foreach ($weekDays as $index => $day)
             {
@@ -25,7 +25,7 @@ class CalendarService
 
                 if ($lesson)
                 {
-                    array_push($calendarData[$timeText], [
+                    array_push($timetableData[$timeText], [
                         'group_name'   => $lesson->group->name,
                         'teacher_name' => $lesson->teacher->name,
                         'teacher_surname' => $lesson->teacher->surname,
@@ -34,15 +34,15 @@ class CalendarService
                 }
                 else if (!$lessons->where('weekday', $index)->where('start_time', '<', $time['start'])->where('end_time', '>=', $time['end'])->count())
                 {
-                    array_push($calendarData[$timeText], 1);
+                    array_push($timetableData[$timeText], 1);
                 }
                 else
                 {
-                    array_push($calendarData[$timeText], 0);
+                    array_push($timetableData[$timeText], 0);
                 }
             }
         }
 
-        return $calendarData;
+        return $timetableData;
     }
 }

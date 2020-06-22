@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'IITU Schedule',
+    'site_title' => 'SCHEDULE',
 ];

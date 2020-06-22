@@ -70,7 +70,7 @@
             @endcan
             @can('group_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.school-classes.index") }}" class="nav-link {{ request()->is('admin/school-classes') || request()->is('admin/school-classes/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.groups.index") }}" class="nav-link {{ request()->is('admin/groups') || request()->is('admin/groups/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-school nav-icon">
 
                         </i>

@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Group;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\MassDestroyGroupRequest;
+use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\UpdateGroupRequest;
+use App\Speciality;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class GroupController extends Controller
 {
@@ -13,47 +19,51 @@ class GroupController extends Controller
 
         $groups = Group::all();
 
-        return view('admin.schoolClasses.index', compact('groups'));
+        return view('admin.groups.index', compact('groups'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('group_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialities = Speciality::all();
+        $specialities = Speciality::all()->pluck('name', 'id');
 
-        return view('admin.schoolClasses.create', compact('specialities'));
+        return view('admin.groups.create', compact('specialities'));
     }
 
     public function store(StoreGroupRequest $request)
     {
         $group = Group::create($request->all());
-        $group->speciality()->sync($request->input('speciality_id', []));
+        $group->speciality()->sync($request->input('specialities', []));
 
-        return redirect()->route('admin.school-classes.index');
+        return redirect()->route('admin.groups.index');
     }
 
     public function edit(Group $group)
     {
         abort_if(Gate::denies('group_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.groups.edit', compact('group'));
+        $specialities = Speciality::all()->pluck('name', 'id');
+
+        $group->load('specialities');
+
+        return view('admin.groups.edit', compact('specialities','group'));
     }
 
     public function update(UpdateGroupRequest $request, Group $group)
     {
         $group->update($request->all());
 
-        return redirect()->route('admin.school-classes.index');
+        return redirect()->route('admin.groups.index');
     }
 
     public function show(Group $group)
     {
         abort_if(Gate::denies('group_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $group->load('groupLessons', 'groupStudents');
+        $group->load('students');
 
-        return view('admin.school-classes.show', compact('group'));
+        return view('admin.groups.show', compact('group'));
     }
 
     public function destroy(Group $group)

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Lesson;
+use App\Services\TimetableService;
 
 class TimetableController extends Controller
 {
