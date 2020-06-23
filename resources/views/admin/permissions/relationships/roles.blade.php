@@ -48,8 +48,8 @@
                                 {{ $role->name ?? '' }}
                             </td>
                             <td>
-                                @foreach($role->permissions as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
+                                @foreach($role->permissions as $key => $permission)
+                                    <span class="badge badge-info">{{ $permission->name }}</span>
                                 @endforeach
                             </td>
                             <td>
