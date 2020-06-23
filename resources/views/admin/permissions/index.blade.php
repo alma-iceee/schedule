@@ -26,7 +26,7 @@
                             {{ trans('cruds.permission.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.permission.fields.title') }}
+                            {{ trans('cruds.permission.fields.name') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,7 +43,7 @@
                                 {{ $permission->id ?? '' }}
                             </td>
                             <td>
-                                {{ $permission->title ?? '' }}
+                                {{ $permission->name ?? '' }}
                             </td>
                             <td>
                                 @can('permission_show')

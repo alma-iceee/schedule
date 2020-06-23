@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Group;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyGroupRequest;
-use App\Http\Requests\StoreGroupRequest;
-use App\Http\Requests\UpdateGroupRequest;
+use App\Http\Request\MassDestroyGroupRequest;
+use App\Http\Request\StoreGroupRequest;
+use App\Http\Request\UpdateGroupRequest;
 use App\Speciality;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;

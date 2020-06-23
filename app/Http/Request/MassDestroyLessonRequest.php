@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class StorePermissionRequest extends FormRequest
+class MassDestroyLessonRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('permission_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('lesson_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -18,8 +18,8 @@ class StorePermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
-                'required'],
+            'ids'   => 'required|array',
+            'ids.*' => 'exists:lessons,id',
         ];
     }
 }

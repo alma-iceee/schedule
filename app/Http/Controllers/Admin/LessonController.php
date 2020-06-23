@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Group;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyLessonRequest;
-use App\Http\Requests\StoreLessonRequest;
-use App\Http\Requests\UpdateLessonRequest;
+use App\Http\Request\MassDestroyLessonRequest;
+use App\Http\Request\StoreLessonRequest;
+use App\Http\Request\UpdateLessonRequest;
 use App\Lesson;
 use App\Room;
 use App\Subject;

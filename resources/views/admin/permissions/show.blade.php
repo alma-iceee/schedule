@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.permission.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.permission.name') }}
     </div>
 
     <div class="card-body">
@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.permission.fields.title') }}
+                            {{ trans('cruds.permission.fields.name') }}
                         </th>
                         <td>
-                            {{ $permission->title }}
+                            {{ $permission->name }}
                         </td>
                     </tr>
                 </tbody>
@@ -49,7 +49,7 @@
     <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
         <li class="nav-item">
             <a class="nav-link" href="#permissions_roles" role="tab" data-toggle="tab">
-                {{ trans('cruds.role.title') }}
+                {{ trans('cruds.role.name') }}
             </a>
         </li>
     </ul>

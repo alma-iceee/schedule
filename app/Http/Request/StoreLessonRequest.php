@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 use App\Rules\LessonTimeAvailabilityRule;
 use Illuminate\Support\Facades\Gate;

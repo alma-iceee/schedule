@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyPermissionRequest;
-use App\Http\Requests\StorePermissionRequest;
-use App\Http\Requests\UpdatePermissionRequest;
+use App\Http\Request\MassDestroyPermissionRequest;
+use App\Http\Request\StorePermissionRequest;
+use App\Http\Request\UpdatePermissionRequest;
 use App\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;

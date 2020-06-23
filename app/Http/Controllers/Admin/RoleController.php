@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MassDestroyRoleRequest;
-use App\Http\Requests\StoreRoleRequest;
-use App\Http\Requests\UpdateRoleRequest;
+use App\Http\Request\MassDestroyRoleRequest;
+use App\Http\Request\StoreRoleRequest;
+use App\Http\Request\UpdateRoleRequest;
 use App\Permission;
 use App\Role;
 use Illuminate\Support\Facades\Gate;
