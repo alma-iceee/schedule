@@ -35,16 +35,9 @@
                             {{ trans('cruds.user.fields.patronymic') }}
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.group') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.user.fields.email') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.user.fields.roles') }}
                         </th>
                         <th>
-
                         </th>
                     </tr>
                 </thead>
@@ -53,7 +46,7 @@
                         <tr data-entry-id="{{ $user->id }}">
 
                             <td>
-                                {{ $user->iitu_id ?? '' }}
+                                {{ $user->user_id ?? '' }}
                             </td>
                             <td>
                                 {{ $user->name ?? '' }}
@@ -65,14 +58,8 @@
                                 {{ $user->patronymic ?? '' }}
                             </td>
                             <td>
-                                {{ $user->group->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $user->email ?? '' }}
-                            </td>
-                            <td>
                                 @foreach($user->roles as $key => $item)
-                                    <span class="badge badge-info">{{ $item->title }}</span>
+                                    <span class="badge badge-info">{{ $item->name }}</span>
                                 @endforeach
                             </td>
                             <td>

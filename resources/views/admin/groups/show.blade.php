@@ -60,10 +60,10 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="class_lessons">
-            @includeIf('admin.groups.relationships.classLessons', ['lessons' => $group->classLessons])
+            @includeIf('admin.groups.relationships.groupLessons', ['lessons' => $group->classLessons])
         </div>
         <div class="tab-pane" role="tabpanel" id="class_users">
-            @includeIf('admin.groups.relationships.classUsers', ['users' => $group->classUsers])
+            @includeIf('admin.groups.relationships.groupUsers', ['users' => $group->classUsers])
         </div>
     </div>
 </div>
