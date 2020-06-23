@@ -12,9 +12,9 @@ use App\Speciality;
 use App\User;
 use App\Department;
 use App\Group;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -35,13 +35,13 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::all()->pluck('id', 'name');
+        $roles = Role::all()->pluck('name', 'id');
 
-        $departments = Department::all()->pluck('id', 'name');
+        //$departments = Department::all()->pluck('name', 'id');
 
-        $specialities = Speciality::all()->pluck('id', 'name');
+        //$specialities = Speciality::all()->pluck('name', 'id');
 
-        $groups = Group::all()->pluck('id', 'name');
+        $groups = Group::all()->pluck('name', 'id');
 
         return view('admin.users.create', compact('roles', 'groups'));
     }

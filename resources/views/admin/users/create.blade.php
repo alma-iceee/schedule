@@ -10,11 +10,11 @@
         <form method="POST" action="{{ route("admin.users.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="iitu_id">{{ trans('cruds.user.fields.iitu_id') }}</label>
-                <input class="form-control {{ $errors->has('iitu_id') ? 'is-invalid' : '' }}" type="text" name="iitu_id" id="iitu_id" value="{{ old('iitu_id', '') }}" required>
-                @if($errors->has('iitu_id'))
+                <label class="required" for="user_id">{{ trans('cruds.user.fields.user_id') }}</label>
+                <input class="form-control {{ $errors->has('user_id') ? 'is-invalid' : '' }}" type="text" name="user_id" id="user_id" value="{{ old('user_id', '') }}" required>
+                @if($errors->has('user_id'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('iitu_id') }}
+                        {{ $errors->first('user_id') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
@@ -96,7 +96,7 @@
             @endif
             <div class="form-group">
                 <label class="required" for="group_id">{{ trans('cruds.lesson.fields.group') }}</label>
-                <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="group_id" id="group_id" required>
+                <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="group_id" id="group_id" >
                     @foreach($groups as $id => $group)
                         <option value="{{ $id }}" {{ old('group_id') == $id ? 'selected' : '' }}>{{ $group }}</option>
                     @endforeach
