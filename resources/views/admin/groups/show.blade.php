@@ -9,7 +9,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.school-classes.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.groups.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -34,7 +34,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.school-classes.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.groups.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -60,10 +60,10 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="class_lessons">
-            @includeIf('admin.groups.relationships.groupLessons', ['lessons' => $group->classLessons])
+            @includeIf('admin.groups.relationships.lessons', ['lessons' => $group->lessons])
         </div>
         <div class="tab-pane" role="tabpanel" id="class_users">
-            @includeIf('admin.groups.relationships.groupUsers', ['users' => $group->classUsers])
+            @includeIf('admin.groups.relationships.users', ['users' => $group->students])
         </div>
     </div>
 </div>

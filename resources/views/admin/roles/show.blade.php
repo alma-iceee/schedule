@@ -65,7 +65,7 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="roles_users">
-            @includeIf('admin.roles.relationships.rolesUsers', ['users' => $role->rolesUsers])
+            @includeIf('admin.roles.relationships.users', ['users' => $role->rolesUsers])
         </div>
     </div>
 </div>

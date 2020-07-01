@@ -26,7 +26,7 @@
                             {{ trans('cruds.role.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.role.fields.title') }}
+                            {{ trans('cruds.role.fields.name') }}
                         </th>
                         <th>
                             {{ trans('cruds.role.fields.permissions') }}
@@ -46,11 +46,11 @@
                                 {{ $role->id ?? '' }}
                             </td>
                             <td>
-                                {{ $role->title ?? '' }}
+                                {{ $role->name ?? '' }}
                             </td>
                             <td>
                                 @foreach($role->permissions as $key => $item)
-                                    <span class="badge badge-info">{{ $item->title }}</span>
+                                    <span class="badge badge-info">{{ $item->name }}</span>
                                 @endforeach
                             </td>
                             <td>

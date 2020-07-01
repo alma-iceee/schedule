@@ -24,18 +24,18 @@
                 <span class="help-block">{{ trans('cruds.lesson.fields.group_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="course_id">{{ trans('cruds.lesson.fields.course') }}</label>
-                <select class="form-control select2 {{ $errors->has('course') ? 'is-invalid' : '' }}" name="course_id" id="course_id" required>
-                    @foreach($courses as $id => $course)
-                        <option value="{{ $id }}" {{ old('course_id') == $id ? 'selected' : '' }}>{{ $course }}</option>
+                <label class="required" for="subject_id">{{ trans('cruds.lesson.fields.subject') }}</label>
+                <select class="form-control select2 {{ $errors->has('subject') ? 'is-invalid' : '' }}" name="subject_id" id="subject_id" required>
+                    @foreach($subjects as $id => $subject)
+                        <option value="{{ $id }}" {{ old('subject_id') == $id ? 'selected' : '' }}>{{ subject }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('course'))
+                @if($errors->has('subject'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('course') }}
+                        {{ $errors->first('subject') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.lesson.fields.course_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.lesson.fields.subject_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="teacher_id">{{ trans('cruds.lesson.fields.teacher') }}</label>
@@ -52,18 +52,18 @@
                 <span class="help-block">{{ trans('cruds.lesson.fields.teacher_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="auditory_id">{{ trans('cruds.lesson.fields.auditory') }}</label>
-                <select class="form-control select2 {{ $errors->has('auditory') ? 'is-invalid' : '' }}" name="auditory_id" id="auditory_id" required>
-                    @foreach($auditories as $id => $auditory)
-                        <option value="{{ $id }}" {{ old('auditory_id') == $id ? 'selected' : '' }}>{{ $auditory }}</option>
+                <label class="required" for="room_id">{{ trans('cruds.lesson.fields.room') }}</label>
+                <select class="form-control select2 {{ $errors->has('room') ? 'is-invalid' : '' }}" name="room_id" id="room_id" required>
+                    @foreach($auditories as $id => $room)
+                        <option value="{{ $id }}" {{ old('room_id') == $id ? 'selected' : '' }}>{{ $room }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('auditory'))
+                @if($errors->has('room'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('auditory') }}
+                        {{ $errors->first('room') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.lesson.fields.auditory_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.lesson.fields.room_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="weekday">{{ trans('cruds.lesson.fields.weekday') }}</label>
